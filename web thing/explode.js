@@ -5,7 +5,7 @@ window.onload= function(){
     
 }
 
-onclick="document.getElementById('img').src='explosion.gif'"
+
 
 function play(){
      var audio = document.getElementById("audio");
