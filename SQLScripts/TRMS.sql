@@ -96,15 +96,17 @@ CREATE function employee_login(text ,int) RETURNS login_result
 SELECT employee_id , employee_last_name, employee_role
 from employee
 where employee.employee_user_name= (
-		select employee_name 
+
+		select employee_user_name 
 		from login 
-		where login.user_name= $1 
+		where login.employee_user_name= $1 
 		and 
-		login.password=$2
+		login.employee_password=$2
 ); $$
     LANGUAGE SQL;
 
-SELECT * FROM bank_login('test',42);
+SELECT * FROM login('test',42);
+
 
 
 
