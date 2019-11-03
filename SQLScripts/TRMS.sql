@@ -15,6 +15,7 @@
 		
 		is_department_head boolean default false,
 		is_benny_coord boolean default false,
+		
  */
 create table employee( employee_id integer primary key,
 employee_type_id integer,
@@ -28,16 +29,18 @@ locale varchar(100)
 --would not normally be handled this way in production, bad practice
 create table login(
 employee_id integer
+employee_user_name varchar(50),
+employee_password varchar(25)
 );
 
 --Grading format table??
 create table grade_format(
 --so we know which form is which
-form_id integer primary key,
 --so we know what the reimbursement is for??? Subject to change or removal
 form_type varchar(100),
 grade_recieved varchar,
-grade_point 
+grade_point numeric,
+is_passing boolean
 )
 
 
