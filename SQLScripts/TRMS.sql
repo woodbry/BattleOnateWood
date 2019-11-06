@@ -127,7 +127,7 @@ CREATE SEQUENCE form_seq
 CREATE TYPE login_result AS (id int,user_name text);
 
 --return user id and username upon successful login
-CREATE function employee_login(user text ,secret text) RETURNS login_result
+CREATE function employee_login(text ,text) RETURNS login_result
     AS $$ 
 SELECT employee_id , employee_user_name
 from employee
