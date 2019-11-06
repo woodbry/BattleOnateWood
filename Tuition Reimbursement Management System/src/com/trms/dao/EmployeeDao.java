@@ -12,9 +12,9 @@ public List<Employee> getAllEmployees() throws SQLException;
 	
 	public Employee getEmployeeByEId(int empId) throws SQLException;
 	
-	public void addForm(Employee e) throws SQLException;
+	public void addEmployee(Employee e) throws SQLException;
 	
-	public void updateForm(Employee e) throws SQLException;
+	public void updateEmployee(Employee e) throws SQLException;
 	
-	public void removeForm(Employee e) throws SQLException;
+	public void removeEmployee(Employee e) throws SQLException;
 }
