@@ -8,21 +8,21 @@ employee_id integer primary key,
 employee_first_name varchar(20),
 employee_last_name varchar(25),
 employee_user_name varchar(100),
-available_funds integer default 1000
+available_funds integer default 1000,
 locale varchar(100)
 );
 
 --here is where roles go
 create table employee_type (
 employee_id integer,
-employee_type_id integer,
-primary key (employee_id,employee_type_id)
+employee_role varchar(10),
+primary key (employee_id,employee_role)
 );
 
 --what those roles are
 create table employee_role(
-employee_type_id integer primary key,
-description varchar
+employee_role varchar(10) primary key,
+description varchar(50)
 );
 
 
@@ -35,8 +35,7 @@ employee_password varchar(25)
 
 --event type table
 create table event_table(
-event_type_id integer primary key,
-event_type varchar,
+event_type varchar(50)primary key,
 event_grading_format_id integer
 );
 
@@ -60,7 +59,7 @@ form_id integer primary key,
 submittor_name varchar(100),
 supervisor_name varchar(50),
 event_name varchar(100),
-event_type varchar(25),
+event_type varchar(50),
 grade_recieved varchar(10),
 supervisor_approval boolean default false,
 event_cost numeric,
@@ -71,25 +70,34 @@ attached_file bytea
 /*
  *Constraints 
  */
+alter table employee_type
+add constraint fk_employee_role
+foreign key (employee_role)
+references employee_role(employee_role)
+on update cascade on delete cascade;
 
-alter table employee_form
+alter table employee_type
+add constraint fk_employee_id
+foreign key (employee_id)
+references employee(employee_id)
+on update cascade on delete cascade;
+
+alter table employee_forms
 add constraint fk_form_id
 foreign key (form_id)
 references form(form_id)
 on update cascade on delete cascade;
 
-
-alter table employee_form 
+alter table employee_forms 
 add constraint fk_employee_id
 foreign key (employee_id)
 references employee(employee_id)
 on delete cascade on update cascade;
 
-
 alter table form 
 add constraint fk_event_type 
 foreign key (event_type) 
-references event_table(event_type_id) 
+references event_table(event_type) 
 on update cascade on delete cascade;
 
 alter table employee 
