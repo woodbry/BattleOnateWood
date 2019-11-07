@@ -48,7 +48,8 @@ public class EmployeesDaoImpl implements EmployeeDao {
 			while (rs.next()) {
 			emp = new Employee();
 			emp.setEmpId(rs.getInt(1));
-			emp.setUserName(rs.getString(2));
+			emp.setFirstName(rs.getString(2));
+			emp.setLastName(rs.getString(3));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
