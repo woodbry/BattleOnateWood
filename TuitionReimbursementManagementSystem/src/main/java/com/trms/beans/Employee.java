@@ -104,4 +104,8 @@ public class Employee {
 			this.isBennyCoord = isBennyCoord;
 		}
 
+<<<<<<< HEAD:Tuition Reimbursement Management System/src/com/trms/beans/Employee.java
 }
+=======
+}
+>>>>>>> WoodB:TuitionReimbursementManagementSystem/src/main/java/com/trms/beans/Employee.java
