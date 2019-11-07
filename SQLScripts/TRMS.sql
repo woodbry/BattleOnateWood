@@ -131,13 +131,15 @@ CREATE SEQUENCE form_seq
 	MINVALUE 975
 	MAXVALUE 101010;
 
+
 --return set for login
-CREATE TYPE login_result AS (id int, user_name text);
+create TYPE login_result AS (id int, user_first_name text, user_last_name text);
+
 
 --return user id and username upon successful login
-CREATE function employee_login(text ,text) RETURNS login_result
+CREATE or replace function employee_login(text ,text) RETURNS login_result
     AS $$ 
-SELECT employee_id , employee_user_name
+SELECT employee_id , employee_first_name, employee_last_name
 from employee
 where employee.employee_user_name= (
 		select employee_user_name 
