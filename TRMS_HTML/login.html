@@ -21,9 +21,9 @@
 
     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"> <i class="material-icons">spa</i>TRMS</a>
       <ul class="right hide-on-med-and-down">
-            <li><a href="#"><i class="large material-icons">search</i></a></li>
-            <li><a href="#"><i class="large material-icons" onclick="location.reload()">refresh</i></a></li>
-          <li><a href="#"><i class="large material-icons">reorder</i></a></li>
+          <li><a href="#"><i class="large material-icons">search</i></a></li>
+          <li><a href="#"><i class="large material-icons" onclick="location.reload()">refresh</i></a></li>
+        <li><a href="#"><i class="large material-icons">reorder</i></a></li>
       </ul>
 
      
@@ -31,27 +31,14 @@
     </div>
   </nav>
 
-  <div class  = "container">
+  <div class  = "container ">
   <form class="center">
     <fieldset>
     
     <!-- Form Name -->
-    <legend class="red-text text-darken-3"><h3>Register</h3></legend>
+    <legend class="red-text text-darken-3"><h3>LOG IN</h3></legend>
     
-    <!-- First Name-->
-    <div class="form-group">
-        <label class="col-md-4 control-label" for="first_name"><h5>First Name :</h5> </label>  
-        <div class="col-md-4">
-        <input name="first_name" class="form-control input-md" id="first_name" type="text" placeholder="enter first name">
-          
-        </div>
-        <!-- Last Name -->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="last_name"><h5>Last Name :</h5> </label>  
-            <div class="col-md-4">
-            <input name="last_name" class="form-control input-md" id="last_name" type="text" placeholder="enter last name">
-              
-            </div>
+    <!-- Text input-->
 
     <div class="form-group">
       <label class="col-md-4 control-label" for="user_name"><h5>User Name :</h5> </label>  
@@ -72,9 +59,12 @@
     
     <!-- Button (Double) -->
     <div class="form-group">
+      <label class="col-md-4 control-label" for="register_button"><h5>Not a member ?</h5></label>
       <div class="col-md-8">
-            <a href="login.html" id="complete_regisration" class="btn-large waves-effect waves-light blue pulse ">Submit</a>
-            <!-- on click try to add another user in the data base -->
+        <!-- <button name="register_button"   class="btn-large waves-effect waves-light red"  id="register_button">Sign Up</button> -->
+        <a href="register.html" id="register_button" class="btn-large waves-effect waves-light red pulse">Sign Up</a>
+        <a href="log in as a emp/super/depthead/benicoor" id="login_button" class="btn-large waves-effect waves-light blue pulse ">Log In</a>
+        
       </div>
     </div>
     
@@ -105,7 +95,7 @@
   </div>
 </div>
   <footer class="page-footer grey darken-3">
-    <div class="container">
+    <div class="container ">
       <div class="row">
         <div class="col l6 s12">
           <h5 class="white-text">About Us </h5>
