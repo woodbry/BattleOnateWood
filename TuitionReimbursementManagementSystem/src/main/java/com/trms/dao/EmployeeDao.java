@@ -13,7 +13,6 @@ public interface EmployeeDao {
 
 	public Employee getEmployeeByEId(int empId) throws SQLException;
 
-
 	public void addEmployee(Employee e) throws SQLException;
 
 	public void updateEmployee(Employee e) throws SQLException;
