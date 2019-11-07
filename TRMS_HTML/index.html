@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Starter Template - Materialize</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+  <div class="center">
+    <!-- Dropdown Trigger -->
+    <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Drop Me!</a>
+
+    <!-- Dropdown Structure -->
+    <ul id='dropdown1' class='dropdown-content'>
+      <li><a href="#!">one</a></li>
+      <li><a href="#!">two</a></li>
+      <li class="divider" tabindex="-1"></li>
+      <li><a href="#!">three</a></li>
+      <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
+      <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
+    </ul>
+
+  </div>
+  <nav class="light-blue darken-3" role="navigation">
+
+
+
+
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">TRMS . . . logo to add</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">Option to update</a></li>
+      </ul>
+
+     
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center red-text">Tuition Reimbursement Management System</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">We help our employees in their career growth.</h5>
+      </div>
+      <div class="row center">
+        <!-- insert link for reimbursement application -->
+        <a href="this will be the link for application" id="download-button" class="btn-large waves-effect waves-light red pulse">Apply Now!</a>
+      </div>
+      <br><br>
+
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="section">
+
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">flash_on</i></h2>
+            <h5 class="center">Quick Reimbursement Acceptance</h5>
+
+            <p class="light">We did most of the heavy lifting for you to by accepting most of the reimbursement you apply thus making everyone happy.</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
+            <h5 class="center">User friendly</h5>
+
+            <p class="light"> by using our system we accomodate all types of reimbursements such as  seminars  college party etc.</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">settings</i></h2>
+            <h5 class="center">Reimbursement Calculator</h5>
+
+            <p class="light">We have provided detailed documentation as well as specific calculations when it comes to your reimbursements</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <br><br>
+  </div>
+
+  <footer class="page-footer light-blue darken-3">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">About Us </h5>
+          <p class="grey-text text-lighten-4">We are a team of Revature Employee working on this project like it's our full time job. We are committed to continue the development of this project .</p>
+
+
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Settings</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1 if ever</a></li>
+            <li><a class="white-text" href="#!">Link if you wan</a></li>
+            <li><a class="white-text" href="#!">Link you decide</a></li>
+            <li><a class="white-text" href="#!">Link or delete this</a></li>
+          </ul>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Connect</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link still thin king</a></li>
+            <li><a class="white-text" href="#!">Link im tired</a></li>
+            <li><a class="white-text" href="#!">Link god is good</a></li>
+            <li><a class="white-text" href="#!">Link hehe</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="red-text text-lighten-3" href="some link that i will put">battleonatewood</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.dropdown-trigger');
+    var instances = M.Dropdown.init(elems, options);
+  });
+
+  </script>
+
+  </body>
+</html>
