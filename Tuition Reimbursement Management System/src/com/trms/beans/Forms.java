@@ -3,6 +3,11 @@ package com.trms.beans;
 public class Forms {
 private int empId;
 private int formId;
+private String supervisorName;
+private String eventName;
+private String eventType;
+private String gradeReceived;
+private double eventCost;
 private boolean approvedByDS;
 private boolean approvedByDH;
 private boolean approvedByBC;

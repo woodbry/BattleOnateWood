@@ -1,16 +1,35 @@
 package com.trms.daoimpl;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
+import com.trms.beans.Employee;
 import com.trms.beans.Forms;
 import com.trms.dao.FormsDao;
+import com.trms.util.Connect;
 
 public class FormsDaoImpl implements FormsDao {
-
+	public static Connect conn = Connect.getInstance();
 	@Override
 	public List<Forms> getAllForms() throws SQLException {
-		// TODO Auto-generated method stub
+		ArrayList<Forms> empList = new ArrayList<Forms>();
+		Connection c= conn.getConnection();
+		java.sql.Statement stmt;
+		try {
+		stmt= c.createStatement();
+		ResultSet rs = stmt.executeQuery("select * from form");
+		Employee p = null;
+		while(rs.next()) {
+			p =new Forms(rs.getInt(1),rs.getString(2),rs.getString(3), rs.getString(4),rs.getString(5),rs.getString(6));
+			empList.add(p);
+		}return empList;
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
 		return null;
 	}
 
