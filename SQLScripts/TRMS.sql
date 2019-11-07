@@ -132,7 +132,7 @@ CREATE SEQUENCE form_seq
 	MAXVALUE 101010;
 
 --return set for login
-CREATE TYPE login_result AS (id int,user_name text);
+CREATE TYPE login_result AS (id int, user_name text);
 
 --return user id and username upon successful login
 CREATE function employee_login(text ,text) RETURNS login_result
