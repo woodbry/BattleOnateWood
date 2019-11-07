@@ -29,7 +29,7 @@ public class Connect {
 		java.sql.Connection conn = null;
 		Properties prop = new Properties();
 		try {
-			prop.load(new FileReader("database.properties"));
+			prop.load(new FileReader("src/main/resources/database.properties"));
 			conn= DriverManager.getConnection(prop.getProperty("url"),
 					prop.getProperty("user"), prop.getProperty("password"));
 //			conn= DriverManager.getConnection(url,username,password);

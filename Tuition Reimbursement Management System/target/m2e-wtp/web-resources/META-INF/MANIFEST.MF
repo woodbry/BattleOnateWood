@@ -1,15 +1,5 @@
 Manifest-Version: 1.0
-<<<<<<< HEAD
-<<<<<<< HEAD
 Built-By: mario battle
 Build-Jdk: 12.0.2
-=======
-Built-By: space
-Build-Jdk: 1.8.0_131
->>>>>>> WoodB
-=======
-Built-By: space
-Build-Jdk: 1.8.0_131
->>>>>>> a9a17cba1807b256db51e10186c163e5da6134b6
 Created-By: Maven Integration for Eclipse
 
