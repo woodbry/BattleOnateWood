@@ -140,6 +140,7 @@ CREATE function employee_login(text ,text) RETURNS login_result
 SELECT employee_id , employee_user_name
 from employee
 where employee.employee_user_name= (
+
 		select employee_user_name 
 		from login 
 		where login.employee_user_name= $1 
@@ -147,6 +148,7 @@ where employee.employee_user_name= (
 		login.employee_password=$2
 ); $$
     LANGUAGE SQL;
+
 
 
 
