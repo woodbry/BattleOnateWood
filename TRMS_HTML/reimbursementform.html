@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Starter Template - Materialize</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+</head>
+<body>
+  
+  <nav class="light-blue darken-3" role="navigation">
+
+
+
+
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"> <i class="material-icons">spa</i>TRMS</a>
+      <ul class="right hide-on-med-and-down">
+          <li><a href="#"><i class="large material-icons">search</i></a></li>
+          <li><a href="#"><i class="large material-icons" onclick="location.reload()">refresh</i></a></li>
+        <li><a href="#"><i class="large material-icons">reorder</i></a></li>
+      </ul>
+
+     
+     
+    </div>
+  </nav>
+
+  <div class  = "container ">
+  <form class="center">
+    <fieldset>
+    
+    <!-- Form Name -->
+    <legend class="red-text text-darken-3"><h3>Reimbursement Application</h3></legend>
+    
+    <div class="form-group ">
+        <label class="col-md-4 " for="type_of_event"><h5>Type of Event :</h5> </label>
+        <div class="row">
+          <div class ="col s6">
+       <form action="#">
+           
+           <p>
+             <label>
+               <input  class=" with-gap" name="type_of_event" type="radio" checked />
+               <span>Certification_______ 100%</span>
+             </label>
+           </p>
+           <p>
+             
+             <label>
+               <input  class="  with-gap"name="type_of_event" type="radio" />
+               <span>Technical Training___ 90%</span>
+             </label>
+           </p>
+       
+           <p>
+             <label>
+               <input class="with-gap" name="type_of_event" type="radio"  />
+               
+               <span>University Courses___80%</span>
+             </label>
+           </p>
+
+          </div>
+       
+
+          <div class="col s6">
+           <p>
+             <label>
+               <input class="with-gap" name="type_of_event" type="radio"  />
+               <span>Certification Preparation Classes_ 75%</span>
+             </label>
+           </p>
+           <p>
+               <label>
+                 <input class="with-gap" name="type_of_event" type="radio"  />
+                 <span> Seminars_________________________ 60%</span>
+               </label>
+             </p>
+             <p>
+                 <label>
+                   <input class="with-gap red" name="type_of_event"type="radio"  />
+                   <span>Others____________________________ 30%</span>
+                 </label>
+               </p>
+              </div>
+         </form>
+       </div>
+       </div>
+      
+      
+       <!-- first name and last name -->
+       <div class="form-group">
+         <div class="row">
+            <div class ="col s6">
+           <label  for="first_name_reg"><h5>First Name :</h5> </label>  
+           
+           <input name="first_name_reg" class="form-control input-md" id="first_name_reg" type="text" placeholder="enter first name">
+          </div>
+
+          <div class ="col s6">
+           <label  for="last_name_reg"><h5>Last Name :</h5> </label>  
+        
+           <input name="last_name_reg" class="form-control input-md" id="last_name_reg" type="text" placeholder="enter last name">
+          </div>
+
+
+
+          <div class="form-group">
+              <div class="row">
+                 <div class ="col s6">
+                <label  for="location_reg"><h5>Location :</h5> </label>  
+                
+                <input name="loaction_reg" class="form-control input-md" id="location_reg" type="text" placeholder="enter location">
+               </div>
+     
+               <div class ="col s6">
+                <label  for="description_reg"><h5>Description :</h5> </label>  
+             
+                <input name="description_reg" class="form-control input-md" id="description_reg" type="text" placeholder="additional description of event">
+               </div>
+
+
+
+
+
+
+          <!-- date and time -->
+          </div>
+           </div>
+           <div class="form-group">
+              <div class="row">
+                 <div class ="col s6">
+                <label  for="date_reg"><h5>Date:</h5> </label>  
+                
+                <input name="date_reg" class="datepicker" id="date_reg" type="date">
+
+                
+               </div>
+     
+               <div class ="col s6">
+                <label  for="time_reg"><h5>Time :</h5> </label>  
+             
+                <input name="time_reg" class="time-picker" id="time_reg" type="time">
+               </div>
+     
+     
+               </div>
+                </div>
+
+              <br/>
+
+
+                <div class="form-group ">
+                    <label class="col-md-4 " for="gf_reg"><h5>Grading Format :</h5> </label>
+                    <div class="row">
+                      <div class ="col s3">
+                   <form action="#">
+                       
+                   
+                       <p>
+                         <label>
+                           <input class="with-gap" name="gf_reg" type="radio"  />
+                           
+                           <span>"A"=90%-100%</span>
+                         </label>
+                       </p>
+                      </div>
+
+                      <div class ="col s2">
+                       <p>
+                         <label>
+                           <input class="with-gap" name="gf_reg" type="radio"  />
+                           <span>"B"=80%-89%</span>
+                         </label>
+                       </p>
+                       </div>
+
+
+                       <div class ="col s2">
+                       <p>
+                           <label>
+                             <input class="with-gap" name="gf_reg" type="radio"  />
+                             <span>"C"=70%-79%</span>
+                           </label>
+                         </p>
+
+                         </div>
+                         <div class ="col s2">
+                         <p>
+                             <label>
+                               <input class="with-gap red" name="gf_reg"type="radio"  />
+                               <span>"D"=60%-69%</span>
+                             </label>
+                           </p>
+                           </div>
+
+                           <div class ="col s2">
+                              <p>
+                                  <label>
+                                    <input class="with-gap red" name="gf_reg\"type="radio"  />
+                                    <span>"E"=0%-59%</span>
+                                  </label>
+                                </p>
+                                </div>
+                          
+                     </form>
+                   </div>
+                   </div>
+
+                  <!-- add file and cost -->
+
+              <div class ="col s6">
+                   <form action="#">
+                      <div class="file-field input-field">
+                        <div class="btn green">
+                          <span>Upload File</span>
+                          <input type="file" multiple>
+                        </div>
+                        <div class="file-path-wrapper">
+                          <input class="file-path validate" id="file_reg" type="text" placeholder="Upload one or more files">
+                        </div>
+                      </div>
+                    </form>
+                    </div>
+
+                    
+                        <form class="col s6">
+                          
+                            <div class="input-field col s6">
+                              <i class="material-icons prefix"> attach_money</i>
+                              <textarea id="cost_id" class="materialize-textarea"></textarea>
+                              <label for="icon_prefix2">Cost</label>
+                           
+                          </div>
+                        </form>
+                        </div>
+                        <div class="row">
+                        <div class ="col s6">
+                            <label  for="wrj_reg"><h5>Work Related Justification :</h5> </label>  
+                            
+                            <input name="wrj_reg" class="form-control input-md" id="wrj_reg" type="text" placeholder="justification">
+                           </div>
+
+                           <div class ="col s6">
+                              <label  for="supervisor_reg"><h5>Immidiate Supervisor :</h5> </label>  
+                              
+                              <input name="supervisor_reg" class="form-control input-md" id="supervisor_reg" type="text" placeholder="name" >
+                             </div>
+
+                            </div>
+                          
+                          
+                           <br/>
+                           <br/>
+                           <br/>
+                           <br/>
+                           <br/>
+
+
+                        
+     
+
+       <!-- Button  -->
+       <div class="form-group">
+         <div class="col-md-8">
+               <a href="#" id="complete_regisration" class="btn-large waves-effect waves-light blue pulse ">Apply</a>
+               <!-- on click to submit query -->
+         </div>
+       </div>
+    
+    </fieldset>
+    </form>
+
+
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+</div>
+  <footer class="page-footer grey darken-3">
+    <div class="container ">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">About Us </h5>
+          <p class="grey-text text-lighten-4">We are a team of Revature Employee working on this project like it's our full time job. We are committed to continue the development of this project .</p>
+
+
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text"></h5>
+          <ul>
+            <li><a class="white-text" href="#!"></a></li>
+            <li><a class="white-text" href="#!"></a></li>
+            <li><a class="white-text" href="#!"></a></li>
+            <li><a class="white-text" href="#!"></a></li>
+          </ul>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Connect</h5>
+          <ul>
+            <li><h5><a href="#" class="fa fa-facebook   "></a></h5></li>
+            <li><h5><a href="#" class="fa fa-snapchat-ghost"></a></h5></li>
+            <li><h5><a href="#" class="fa fa-instagram"></a></h5></li>
+            <li><h5><a href="#" class="fa fa-youtube"></a></h5></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="red-text text-lighten-3" href="some link that i will put">battleonatewood</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.datepicker');
+    var instances = M.Datepicker.init(elems, options);
+  });
+  </script>
+
+  </body>
+</html>
