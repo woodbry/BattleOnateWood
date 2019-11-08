@@ -23,7 +23,7 @@ public class LoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		System.out.println(" in doGet of Login Servlet");
-		RequestDispatcher rd = request.getRequestDispatcher("login.html");
+		RequestDispatcher rd = request.getRequestDispatcher("mainpage.html");
 		rd.forward(request, response);
 	}
 
@@ -37,12 +37,11 @@ public class LoginServlet extends HttpServlet {
 		//convert JSON to POJO
 		//YOU NEED A DEFAULT CONSTRUCTOR  IN YOUR JAVA OBJECT CLASS IN ORDER TO DO THIS
 		emp = mapper.readValue(request.getInputStream(), Employee.class);
-		System.out.println("Am I still null?" + emp);
-		Employee result = new Employee();
-		result = empdi.login(emp.getUserName(),emp.getPassword());
+//		System.out.println("Am I still null?" + emp);
+		
+		emp = empdi.login(emp.getUserName(),emp.getPassword());
 		PrintWriter pw = response.getWriter();
-		System.out.println("Employee is: "+result);
-		pw.write("<h3>Welcome "+ result.getFirstName()+" "+result.getLastName()+"</h3>");
+		pw.write("<h3>Welcome "+ emp.getFirstName()+" "+emp.getLastName()+"</h3>");
 		pw.close();
 		
 	}
