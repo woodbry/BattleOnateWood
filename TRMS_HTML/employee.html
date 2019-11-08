@@ -36,40 +36,74 @@
     <fieldset>
     
     <!-- Form Name -->
-    <legend class="red-text text-darken-3"><h3>LOG IN</h3></legend>
-    
-    <!-- Text input-->
+    <legend class="red-text text-darken-3"><h3>Employee Dashboard</h3></legend>
 
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="user_name"><h5>User Name :</h5> </label>  
-      <div class="col-md-4">
-      <input name="user_name" class="form-control input-md" id="user_name" type="text" placeholder="enter username">
-        
-      </div>
-    </div>
+
+   
+
+
+
     
-    <!-- Password input-->
+    <!-- reimbursement link  Button  -->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="user_password"><h5>User Password :</h5> </label>
-      <div class="col-md-4">
-        <input name="user_password" class="form-control input-md" id="user_password" type="password" placeholder="enter password">
-        
-      </div>
-    </div>
-    
-    <!-- Button (Double) -->
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="register_button"><h5>Not a member ?</h5></label>
       <div class="col-md-8">
-        <!-- <button name="register_button"   class="btn-large waves-effect waves-light red"  id="register_button">Sign Up</button> -->
-        <a href="register.html" id="register_button" class="btn-large waves-effect waves-light red pulse">Sign Up</a>
-        <a href="log in as a emp/super/depthead/benicoor" id="login_button" class="btn-large waves-effect waves-light blue pulse ">Log In</a>
-        
+            <a href="reimbursementform.html" id="reimbursement_app" class="btn-large waves-effect waves-light blue pulse ">Reimbursement Application</a>
+            <!-- on click to submit query -->
       </div>
     </div>
+
+<!-- start form  -->
+ 
+<div id="card-widgets">
+  <div class="row">
+   
+    <div class="col s12 m4 l4">
+      <div id="profile-card" class="card"></div>
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="mountain.jpg" alt="user bg">
+        </div>
+        <div class="card-content">
+          <img src="images/avatar/avatar-7.png" alt="" class="circle responsive-img activator card-profile-image cyan lighten-1 padding-2">
+          
+          <span class="card-title activator grey-text text-darken-4 " id="card_name">Mario Battle</span>
+          <p>
+            <i class="material-icons"id="card_position">perm_identity</i> Supervisor</p>
+          <p>
+            <i class="material-icons"id="card_id">assignment_ind</i>Employee Id</p>
+          <p>
+            <i class="material-icons">email</i> battle@domain.com</p>
+        </div>
+       
+      </div>
+
+      <div class  = "container ">
+          <form class="col s5">
+              <label class="col s4" ><h5>first name</h5></label>
+              <label class="col s4" ><h5>last name</h5></label>
+              <label class="col s4" ><h5>date</h5></label>
+              <label class="col s4" ><h5>time</h5></label>
+              <label class="col s4" ><h5>location</h5></label>
+              <label class="col s4" ><h5>event</h5></label>
+              <label class="col s4" ><h5>description</h5></label>
+              <label class="col s4" ><h5>cost</h5></label>
+              <label class="col s4" ><h5>justification</h5></label>
+            </form>
+            </div>
+    </div>
+</div>
+
+
+   <!-- end -->
+
+
+
     
     </fieldset>
     </form>
+
+    
+
+
   
 
   <div class="container">
@@ -135,6 +169,8 @@
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
+
+  
 
   </body>
 </html>
