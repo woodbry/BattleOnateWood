@@ -119,14 +119,14 @@ references grade_format(grade_format_id)
 
 --sequence for account id's *is running already
 create sequence employee_seq
-	increment by -17
-	start with 10101101
+	increment by 17
+	start with 9000
 	minvalue 9000
 	maxvalue 91010011;
 
 --sequence for user id's *is running already
 CREATE SEQUENCE form_seq
-	increment by -3
+	increment by -13
 	START with 13337
 	MINVALUE 975
 	MAXVALUE 101010;
