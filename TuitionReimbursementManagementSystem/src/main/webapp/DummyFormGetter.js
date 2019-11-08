@@ -1,19 +1,20 @@
 function loadForm(form){
 		
-    document.getElementById("form_id").innerHTML=form.form_ID;
-    document.getElementById("submittor_name").innerHTML=form.submittor_name;
-    document.getElementById("supervisor_name").innerHTML=form.supervisor_name;
-    document.getElementById("event_name").innerHTML=form.event_name;
-    document.getElementById("event_type").innerHTML=form.event_type;
-    document.getElementById("grade_received").innerHTML=form.grade_received;
-    document.getElementById("supervisor_approval").innerHTML=form.supervisor_approval;
-    document.getElementById("event_cost").innerHTML=form.event_cost;
-    document.getElementById("date_completed").innerHTML=form.date_completed;
+    document.getElementById("formId").innerHTML=form.formId;
+    document.getElementById("empId").innerHTML=form.empId;
+    document.getElementById("supervisorName").innerHTML=form.supervisorName;
+    document.getElementById("eventName").innerHTML=form.eventName;
+	document.getElementById("eventType").innerHTML=form.eventType;
+	document.getElementById("eventCost").innerHTML=form.eventCost;
+    document.getElementById("approvedByDS").innerHTML=form.approvedByDS;
+	document.getElementById("approvedByDH").innerHTML=form.approvedByDH;
+	document.getElementById("approvedByBC").innerHTML=form.approvedByBC;
+    document.getElementById("dateCompleted").innerHTML=form.dateCompleted;
 }
 
 function getForm(){
-	console.log( "in get VG bananaphone!");
-	let fid=document.getElementById("form_id").value;
+	console.log("in get Form");
+	let fid=document.getElementById("formId").value;
 	var xhr= new XMLHttpRequest();
 	xhr.onreadystatechange= function() {
 		console.log("in ORSC "+ xhr.readyState );
@@ -24,11 +25,9 @@ function getForm(){
 		}
     }
     //change link when you add to project
-	xhr.open("GET","http://localhost:9090/TuitionReimbursementManagementSystem/DummyFormGetter?fid=" + fid,true);
+	xhr.open("GET","http://localhost:9090/TuitionReimbursementManagementSystem/DummyFormGetter?fid="+fid,true);
 	xhr.send();
 }
-
-
 function postForm(){
 	console.log("in postForm");
 	
@@ -47,7 +46,7 @@ xhr.open("POST","http://localhost:9090/TuitionReimbursementManagementSystem/Dumm
 
 }
 function jsonBuilder() {
-    var elements = document.getElementById("vgForm").elements;
+    var elements = document.getElementById("trmsForm").elements;
     var obj ={};
     for(var i = 0 ; i < elements.length-1; i++){
         var item = elements.item(i);
