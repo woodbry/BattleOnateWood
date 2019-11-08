@@ -33,13 +33,16 @@ public class LoginServlet extends HttpServlet {
 		Employee emp = null;
 		ObjectMapper mapper= new ObjectMapper();
 		EmployeesDaoImpl empdi = new EmployeesDaoImpl();
+		
 		//convert JSON to POJO
 		//YOU NEED A DEFAULT CONSTRUCTOR  IN YOUR JAVA OBJECT CLASS IN ORDER TO DO THIS
 		emp = mapper.readValue(request.getInputStream(), Employee.class);
-		System.out.println(emp);
-		emp = empdi.login(emp.getUserName(),emp.getPassword());
+		System.out.println("Am I still null?" + emp);
+		Employee result = new Employee();
+		result = empdi.login(emp.getUserName(),emp.getPassword());
 		PrintWriter pw = response.getWriter();
-		pw.write("<h3>Welcome "+ emp.getFirstName()+" "+emp.getLastName()+"</h3>");
+		System.out.println("Employee is: "+result);
+		pw.write("<h3>Welcome "+ result.getFirstName()+" "+result.getLastName()+"</h3>");
 		pw.close();
 		
 	}

@@ -27,20 +27,17 @@ public class Connect {
 	//methods that 'do the things'
 	public Connection getConnection() {
 		java.sql.Connection conn = null;
-		Properties prop = new Properties();
+		
 		try {
-			prop.load(new FileReader("database.properties"));
-			conn= DriverManager.getConnection(prop.getProperty("url"),
-					prop.getProperty("user"), prop.getProperty("password"));
-//			conn= DriverManager.getConnection(url,username,password);
+			Class.forName("org.postgresql.Driver");
+			conn= DriverManager.getConnection("jdbc:postgresql://mypegabatch.cfgmuw0zkwrh.us-east-2.rds.amazonaws.com/postgres",
+					"MadScientist626", "3eDru-=0FaP8L-tiTh8p");
+
 		} catch (SQLException e) {
 			System.out.println("Failed to create connection");
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
+		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
