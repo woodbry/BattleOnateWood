@@ -32,14 +32,16 @@ public class LoginServlet extends HttpServlet {
 		
 		emp = empdi.login(emp.getUserName(),emp.getPassword());
 		PrintWriter pw = response.getWriter();
+		HttpSession session = request.getSession(true);
 		if(emp.getFirstName() != null) {
-			HttpSession session = request.getSession(true);
+//			HttpSession session = request.getSession(true);
 			session.setAttribute("employee_id", emp.getEmpId());
 			session.setAttribute("name", emp.getFirstName()+" "+emp.getLastName());
 		}else {
 			pw.print("Sorry, invalid username/password combination!");
 			request.getRequestDispatcher("index.html").include(request, response);
 		}
+		pw.write("Welcome " +session.getAttribute("name"));
 		pw.close();
 		
 	}

@@ -30,7 +30,12 @@ public class Connect {
 		
 		try {
 
-			Class.forName("org.postgresql.Driver");
+			try {
+				Class.forName("org.postgresql.Driver");
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			conn= DriverManager.getConnection("jdbc:postgresql://mypegabatch.cfgmuw0zkwrh.us-east-2.rds.amazonaws.com/postgres",
 					"MadScientist626", "3eDru-=0FaP8L-tiTh8p");
 
