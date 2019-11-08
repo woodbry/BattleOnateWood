@@ -1,6 +1,7 @@
 package com.trms.daoimpl;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -44,7 +45,7 @@ public class FormsDaoImpl implements FormsDao {
 	 ResultSet rs = ps.executeQuery();
 	 while(rs.next()) {
 		 f= new Forms(rs.getInt(1), rs.getInt(2),rs.getString(3), rs.getString(4),rs.getString(5), 
-				 rs.getDouble(6), rs.getBoolean(7), rs.getBoolean(8),rs.getBoolean(9),rs.getDate(10));
+				 rs.getDouble(6), rs.getBoolean(7), rs.getBoolean(8),rs.getBoolean(9),rs.getString(10));
 	 }
 	 return f;
 	}
@@ -62,7 +63,15 @@ public class FormsDaoImpl implements FormsDao {
 //	@Override
 	public void addForm(Forms f) throws SQLException {
 		// TODO Auto-generated method stub
-		
+		Connection c = conn.getConnection();
+		String sql = "insert into forms values(default,?,?,?,?,?,default,default,default,?";
+		PreparedStatement ps = c.prepareStatement(sql);
+		ps.setInt(1,f.getEmpId());
+		ps.setString(2, f.getSupervisorName());
+		ps.setString(3, f.getEventName());
+		ps.setString(4, f.getEventType());
+		ps.setDouble(5, f.getEventCost());
+		ps.setString(6, f.getDateCompleted());
 	}
 
 //	@Override

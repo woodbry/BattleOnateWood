@@ -13,11 +13,11 @@ public class Forms {
 	private boolean approvedByDS;
 	private boolean approvedByDH;
 	private boolean approvedByBC;
-	private Date dateCompleted;
+	private String dateCompleted;
 	
 	
 public Forms(int formId, int empId, String supervisorName, String eventName, String eventType, double eventCost,
-			boolean approvedByDS, boolean approvedByDH, boolean approvedByBC, Date dateCompleted) {
+			boolean approvedByDS, boolean approvedByDH, boolean approvedByBC, String dateCompleted) {
 		super();
 		this.formId = formId;
 		this.empId = empId;
@@ -30,7 +30,20 @@ public Forms(int formId, int empId, String supervisorName, String eventName, Str
 		this.approvedByBC = approvedByBC;
 		this.dateCompleted = dateCompleted;
 	}
-
+public Forms( int empId, String supervisorName, String eventName, String eventType, double eventCost,
+		boolean approvedByDS, boolean approvedByDH, boolean approvedByBC, String dateCompleted) {
+	super();
+	
+	this.empId = empId;
+	this.supervisorName = supervisorName;
+	this.eventName = eventName;
+	this.eventType = eventType;
+	this.eventCost = eventCost;
+	this.approvedByDS = approvedByDS;
+	this.approvedByDH = approvedByDH;
+	this.approvedByBC = approvedByBC;
+	this.dateCompleted = dateCompleted;
+}
 
 //constructors
 public Forms(int empId, int formId, boolean approvedByDS, boolean approvedByDH, boolean approvedByBC) {
@@ -141,12 +154,12 @@ public void setEventCost(double eventCost) {
 }
 
 
-public Date getDateCompleted() {
+public String getDateCompleted() {
 	return dateCompleted;
 }
 
 
-public void setDateCompleted(Date dateCompleted) {
+public void setDateCompleted(String dateCompleted) {
 	this.dateCompleted = dateCompleted;
 }
 
