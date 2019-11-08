@@ -18,7 +18,22 @@ public class Employee {
 	   		// TODO Auto-generated constructor stub
 	   	}      
 	       
-	   	public Employee(int empId,String firstName, String lastName, String userName, double availableFunds, String location) {
+	   	public Employee(int empId, String firstName, String lastName, String userName, String password, String location, 
+				double availableFunds, boolean isDepHead, boolean isDirectSup, boolean isBennyCoord) {
+			super();
+			this.firstName = firstName;
+			this.lastName = lastName;
+			this.userName = userName;
+			this.password = password;
+			this.location = location;
+			this.empId = empId;
+			this.availableFunds = availableFunds;
+			this.isDepHead = isDepHead;
+			this.isDirectSup = isDirectSup;
+			this.isBennyCoord = isBennyCoord;
+		}
+
+		public Employee(int empId,String firstName, String lastName, String userName, double availableFunds, String location) {
 			super();
 			this.firstName = firstName;
 			this.lastName = lastName;
@@ -102,6 +117,14 @@ public class Employee {
 		}
 		public void setBennyCoord(boolean isBennyCoord) {
 			this.isBennyCoord = isBennyCoord;
+		}
+
+		@Override
+		public String toString() {
+			return "Employee [firstName=" + firstName + ", lastName=" + lastName + ", userName=" + userName
+					+ ", password=" + password + ", location=" + location + ", empId=" + empId + ", availableFunds="
+					+ availableFunds + ", isDepHead=" + isDepHead + ", isDirectSup=" + isDirectSup + ", isBennyCoord="
+					+ isBennyCoord + "]";
 		}
 
 }

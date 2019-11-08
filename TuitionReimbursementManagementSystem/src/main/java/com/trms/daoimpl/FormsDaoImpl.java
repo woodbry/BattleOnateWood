@@ -1,6 +1,7 @@
 package com.trms.daoimpl;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -22,7 +23,8 @@ public class FormsDaoImpl implements FormsDao {
 		ResultSet rs = stmt.executeQuery("select * from form");
 		Forms p = null;
 		while(rs.next()) {
-			p =new Forms(rs.getInt(1),rs.getString(2),rs.getString(3), rs.getString(4),rs.getString(5),rs.getString(6));
+			p =new Forms(rs.getInt(1), rs.getInt(2),rs.getString(3), rs.getString(4),rs.getString(5), 
+					 rs.getDouble(6), rs.getBoolean(7), rs.getBoolean(8),rs.getBoolean(9),rs.getDate(10));
 			empList.add(p);
 		}return empList;
 		} catch(SQLException e) {
@@ -34,8 +36,17 @@ public class FormsDaoImpl implements FormsDao {
 
 //	@Override
 	public Forms getFormByFId(int formId) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+	 Forms f = null;
+	 Connection c = conn.getConnection();
+	 String sql = "select * from forms where form_id= ?";
+	 PreparedStatement ps = c.prepareStatement(sql);
+	 ps.setInt(1, formId);
+	 ResultSet rs = ps.executeQuery();
+	 while(rs.next()) {
+		 f= new Forms(rs.getInt(1), rs.getInt(2),rs.getString(3), rs.getString(4),rs.getString(5), 
+				 rs.getDouble(6), rs.getBoolean(7), rs.getBoolean(8),rs.getBoolean(9),rs.getDate(10));
+	 }
+	 return f;
 	}
 
 //	@Override
