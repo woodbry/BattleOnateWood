@@ -56,7 +56,7 @@ public class EmployeesDaoImpl implements EmployeeDao {
 			emp.setLastName(rs.getString(3));
 			}
 		} catch (SQLException e) {
-			System.out.println("I am still broken! :( ");
+			System.out.println("login still broken! :( ");
 			e.printStackTrace();
 		}
 		
