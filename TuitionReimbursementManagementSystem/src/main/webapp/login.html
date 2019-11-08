@@ -1,134 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <title>Starter Template - Materialize</title>
-
-  <!-- CSS  -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+<meta charset="ISO-8859-1">
+<title>Login Page</title>
 </head>
 <body>
-  
-  <nav class="light-blue darken-3" role="navigation">
-
-
-
-
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"> <i class="material-icons">spa</i>TRMS</a>
-      <ul class="right hide-on-med-and-down">
-          <li><a href="#"><i class="large material-icons">search</i></a></li>
-          <li><a href="#"><i class="large material-icons" onclick="location.reload()">refresh</i></a></li>
-        <li><a href="#"><i class="large material-icons">reorder</i></a></li>
-        
-      </ul>
-
-     
-      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-    </div>
-  </nav>
-  <div class="section no-pad-bot" id="index-banner">
-    <div class="container">
-      <br><br>
-      <h1 class="header center red-text">Tuition Reimbursement Management System</h1>
-      <div class="row center">
-        <h5 class="header col s12 light">We help our employees in their career growth.</h5>
-      </div>
-      <div class="row center">
-        <!-- insert link for reimbursement application -->
-        <a href="login.html" id="download-button" class="btn-large waves-effect waves-light red pulse">Get Started</a>
-      </div>
-      <br><br>
-
-    </div>
-  </div>
-
-
-  <div class="container ">
-    <div class="section">
-
-      <!--   Icon Section   -->
-      <div class="row">
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">flash_on</i></h2>
-            <h5 class="center">Quick Reimbursement Acceptance</h5>
-
-            <p class="light">We did most of the heavy lifting for you to by accepting most of the reimbursement you apply thus making everyone happy.</p>
-          </div>
-        </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
-            <h5 class="center">TRMS OverView</h5>
-
-            <p class="light">The purpose of TRMS is to provide a system that encourages quality knowledge growth relevant to an individual’s expertise.   Currently, TRMS provides reimbursements for university courses, seminars, certification preparation classes, certifications, and technical training.  The current system relies solely on email communication, requiring manual lookups of available funds and is error-prone due to inbox clutter and incorrect routing of tasks.  Furthermore, there is no way to record and report on reimbursements awarded, and so the company has no way to identify highly-invested courses that could be developed to be offered in-house.</p>
-          </div>
-        </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">settings</i></h2>
-            <h5 class="center">Reimbursement Calculator</h5>
-
-            <p class="light">Each employee is allowed to claim up to $1000 in tuition reimbursement a year.  The amount available to an employee is reset on the new year.  Event types have different standard reimbursement coverage: University Courses 80%, Seminars 60%, Certification Preparation Classes 75%, Certification 100%, Technical Training 90%, Other 30%.  After a Benefits Coordinator has approved a reimbursement, the reimbursement is pending until a passing grade or presentation over the event is provided.</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-    <br><br>
-  </div>
-
-  <footer class="page-footer grey darken-3">
-    <div class="container">
-      <div class="row">
-        <div class="col l6 s12">
-          <h5 class="white-text">About Us </h5>
-          <p class="grey-text text-lighten-4">We are a team of Revature Employee working on this project like it's our full time job. We are committed to continue the development of this project .</p>
-
-
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text"></h5>
-          <ul>
-            <li><a class="white-text" href="#!"> </a></li>
-            <li><a class="white-text" href="#!">  </a></li>
-            <li><a class="white-text" href="#!"> </a></li>
-            <li><a class="white-text" href="#!"> </a></li>
-          </ul>
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Connect</h5>
-          <ul>
-            <li><h5><a href="#" class="fa fa-facebook   "></a></h5></li>
-            <li><h5><a href="#" class="fa fa-snapchat-ghost"></a></h5></li>
-            <li><h5><a href="#" class="fa fa-instagram"></a></h5></li>
-            <li><h5><a href="#" class="fa fa-youtube"></a></h5></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-   
-
-    <div class="footer-copyright">
-      <div class="container">
-      Made by <a class="red-text text-lighten-3 grey darken-2" href="some link that i will put">battleonatewood</a>
-      </div>
-    </div>
-  </footer>
-
-
-  <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="js/materialize.js"></script>
-  <script src="js/init.js"></script>
-
-
-  </body>
+<h1>Login Page</h1>
+<form enctype="application/json" method="POST" id="loginForm">
+Username: <input type="text" name="userName">
+<br>
+Password: <input type="text" name="password">
+<br>
+<input type="submit" id="loginSubmit" />
+</form>
+<script type="text/javascript" src="login.js"></script> 
+</body>
 </html>

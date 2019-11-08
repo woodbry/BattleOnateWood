@@ -37,10 +37,14 @@ public class EmployeesDaoImpl implements EmployeeDao {
 	}
 	public Employee login(String name, String secret) {
 		Employee emp = null;
-		Connection c = conn.getConnection();
-		String sql = "select * from employee_login(?,?)";
+		
+		String sql = "SELECT employee_id , employee_first_name, employee_last_name " + 
+				"from trmsproject1.employee where trmsproject1.employee.employee_user_name= ("
+				+ "select employee_user_name from trmsproject1.login where trmsproject1.login.employee_user_name=? and trmsproject1.login.employee_password=?)";
 		ResultSet rs;
 		try {
+			Connection c = conn.getConnection();
+//			String sql = "select * from employee_login(?,?)";
 			PreparedStatement ps = c.prepareStatement(sql);
 			ps.setString(1, name);
 			ps.setString(2, secret);
@@ -48,13 +52,15 @@ public class EmployeesDaoImpl implements EmployeeDao {
 			while (rs.next()) {
 			emp = new Employee();
 			emp.setEmpId(rs.getInt(1));
-			emp.setUserName(rs.getString(2));
+			emp.setFirstName(rs.getString(2));
+			emp.setLastName(rs.getString(3));
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			System.out.println("I am still broken! :( ");
 			e.printStackTrace();
 		}
 		
+		System.out.println("Welcome "+emp);
 		return emp;
 	}
 //	@Override
@@ -66,14 +72,15 @@ public class EmployeesDaoImpl implements EmployeeDao {
 //	@Override
 	public Employee getEmployeeByEId(int empId) throws SQLException {
 		Connection c= conn.getConnection();
-		String sql = "select * from employee where employee_id = ?";
+		String sql = "select * from employees where employee_id = ?";
 		try {
 		PreparedStatement ps= c.prepareStatement(sql);
 		ps.setInt(1, empId);
 		ResultSet rs = ps.executeQuery();
 		Employee e = null;
 		while(rs.next()) {
-			e=new Employee(rs.getInt(1),rs.getString(2),rs.getString(3), rs.getString(4),rs.getInt(5),rs.getString(6));
+			e=new Employee(rs.getInt(1),rs.getString(2),rs.getString(3), rs.getString(4),rs.getString(5),
+					rs.getString(6), rs.getDouble(7), rs.getBoolean(8), rs.getBoolean(9), rs.getBoolean(10));
 		}
 		return e;
 		}catch(SQLException e) {e.printStackTrace();}
@@ -83,7 +90,7 @@ public class EmployeesDaoImpl implements EmployeeDao {
 //	@Override
 	public void addEmployee(Employee e) throws SQLException {
 		Connection c = conn.getConnection();
-		String sql = "insert into employee values(default,?,?,?,?) ";
+		String sql = "insert into employees values(default,?,?,?,?) ";
 		PreparedStatement ps = c.prepareStatement(sql);
 		ps.setString(1,e.getFirstName()+":"+e.getLastName());
 		ps.setString(2,  e.getUserName());
@@ -94,7 +101,7 @@ public class EmployeesDaoImpl implements EmployeeDao {
 //	@Override
 	public void updateEmployee(Employee e) throws SQLException {
 		 Connection c = conn.getConnection();
-		 String str = "update from employee set available_funds =? where employee_id = ?";
+		 String str = "update from employees set available_funds =? where employee_id = ?";
 		 try {
 			 PreparedStatement ps = c.prepareStatement(str);
 			 ps.setInt(2, e.getEmpId());
