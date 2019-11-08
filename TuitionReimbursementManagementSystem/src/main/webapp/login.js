@@ -27,6 +27,6 @@ function jsonBuilder(){
 
 window.onload=function(){
 	console.log("in onLoad");
-	document.getElementById("login_button").addEventListener("click", postLogin , false);
+	document.getElementById("loginSubmit").addEventListener("click", postLogin , false);
 	
 }

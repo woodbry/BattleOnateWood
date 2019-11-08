@@ -1,140 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <title>Starter Template - Materialize</title>
-
-  <!-- CSS  -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
- 
+<meta charset="ISO-8859-1">
+<title>Login Page</title>
 </head>
 <body>
-  
-  <nav class="light-blue darken-3" role="navigation">
-
-
-
-
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"> <i class="material-icons">spa</i>TRMS</a>
-      <ul class="right hide-on-med-and-down">
-          <li><a href="#"><i class="large material-icons">search</i></a></li>
-          <li><a href="#"><i class="large material-icons" onclick="location.reload()">refresh</i></a></li>
-        <li><a href="#"><i class="large material-icons">reorder</i></a></li>
-      </ul>
-
-     
-     
-    </div>
-  </nav>
-
-  <div class  = "container ">
-  <form class="center" enctype="application/json" method="POST" id="loginForm">
-    <fieldset>
-    
-    <!-- Form Name -->
-    <legend class="red-text text-darken-3"><h3>LOG IN</h3></legend>
-    
-    <!-- Text input-->
-
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="user_name"><h5>User Name :</h5> </label>  
-      <div class="col-md-4">
-      <input name="user_name" class="form-control input-md" id="user_name" type="text" placeholder="enter username">
-        
-      </div>
-    </div>
-    
-    <!-- Password input-->
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="user_password"><h5>User Password :</h5> </label>
-      <div class="col-md-4">
-        <input name="user_password" class="form-control input-md" id="user_password" type="password" placeholder="enter password">
-        
-      </div>
-    </div>
-    
-    <!-- Button (Double) -->
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="register_button"><h5>Not a member ?</h5></label>
-      <div class="col-md-8">
-        <!-- <button name="register_button"   class="btn-large waves-effect waves-light red"  id="register_button">Sign Up</button> -->
-        <a href="register.html" id="register_button" class="btn-large waves-effect waves-light red pulse">Sign Up</a>
-        <a href="log in as a emp/super/depthead/benicoor" id="login_button" class="btn-large waves-effect waves-light blue pulse ">Log In</a>
-        
-      </div>
-    </div>
-    
-    </fieldset>
-    </form>
-  
-
-  <div class="container">
-    <div class="section">
-
-      <!--   Icon Section   -->
-      <div class="row">
-        <div class="col s12 m4">
-         
-          </div>
-        </div>
-
-        <div class="col s12 m4">
-          
-        </div>
-
-        <div class="col s12 m4">
-          
-      </div>
-
-    </div>
-    <br><br>
-  </div>
-</div>
-  <footer class="page-footer grey darken-3">
-    <div class="container ">
-      <div class="row">
-        <div class="col l6 s12">
-          <h5 class="white-text">About Us </h5>
-          <p class="grey-text text-lighten-4">We are a team of Revature Employee working on this project like it's our full time job. We are committed to continue the development of this project .</p>
-
-
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text"></h5>
-          <ul>
-            <li><a class="white-text" href="#!"></a></li>
-            <li><a class="white-text" href="#!"></a></li>
-            <li><a class="white-text" href="#!"></a></li>
-            <li><a class="white-text" href="#!"></a></li>
-          </ul>
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Connect</h5>
-          <ul>
-            <li><h5><a href="#" class="fa fa-facebook   "></a></h5></li>
-            <li><h5><a href="#" class="fa fa-snapchat-ghost"></a></h5></li>
-            <li><h5><a href="#" class="fa fa-instagram"></a></h5></li>
-            <li><h5><a href="#" class="fa fa-youtube"></a></h5></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer-copyright">
-      <div class="container">
-      Made by <a class="red-text text-lighten-3" href="some link that i will put">battleonatewood</a>
-      </div>
-    </div>
-  </footer>
-
-
-  <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="js/materialize.js"></script>
-  <script src="js/init.js"></script>
-  <script type="text/javascript" src="login.js"></script>
-  </body>
+<h1>Login Page</h1>
+<form enctype="application/json" method="POST" id="loginForm">
+Username: <input type="text" name="username">
+<br>
+Password: <input type="text" name="password">
+<br>
+<input type="submit" id="loginSubmit" />
+</form>
+<script type="text/javascript" src="login.js"></script> 
+</body>
 </html>
