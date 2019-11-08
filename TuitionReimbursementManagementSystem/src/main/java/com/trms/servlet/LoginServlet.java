@@ -2,13 +2,12 @@ package com.trms.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.trms.beans.Employee;
@@ -19,14 +18,6 @@ import com.trms.daoimpl.EmployeesDaoImpl;
  */
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		System.out.println(" in doGet of Login Servlet");
-		RequestDispatcher rd = request.getRequestDispatcher("mainpage.html");
-		rd.forward(request, response);
-	}
-
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("in doPost");
@@ -41,7 +32,14 @@ public class LoginServlet extends HttpServlet {
 		
 		emp = empdi.login(emp.getUserName(),emp.getPassword());
 		PrintWriter pw = response.getWriter();
-		pw.write("<h3>Welcome "+ emp.getFirstName()+" "+emp.getLastName()+"</h3>");
+		if(emp.getFirstName() != null) {
+			HttpSession session = request.getSession(true);
+			session.setAttribute("employee_id", emp.getEmpId());
+			session.setAttribute("name", emp.getFirstName()+" "+emp.getLastName());
+		}else {
+			pw.print("Sorry, invalid username/password combination!");
+			request.getRequestDispatcher("index.html").include(request, response);
+		}
 		pw.close();
 		
 	}

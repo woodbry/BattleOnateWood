@@ -7,15 +7,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Portal
+ * Servlet implementation class MainPage
  */
-public class Portal extends HttpServlet {
+public class MainPage extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println(" in doGet of HomeServlet");
-		request.getRequestDispatcher("mainpage.html").forward(request, response);
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 }
