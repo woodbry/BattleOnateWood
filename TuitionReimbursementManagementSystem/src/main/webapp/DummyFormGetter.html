@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Dummy Form Getter</title>
+</head>
+<body>
+	<div>
+	<h2> Welcome to the Dummy Form Getter</h2>
+	</div>
+	<div>
+	<input type="text" id= "formId" placeholder="enter Form ID"/>
+    <input type="submit" value= "Get TRMS Form" id="fidSubmitGet"/>
+    <h2 id="formId"></h2>
+	<h2 id="empId"></h2>
+	<h3 id="supervisorName"></h3>
+    <h3 id="eventName"></h3>
+	<h3 id="eventType"></h3>
+	<h3 id="eventCost"></h3>
+    <h3 id="approvedByDS"></h3>
+	<h3 id="approvedByDH"></h3>
+	<h3 id="approvedByBC"></h3>
+    <h3 id="dateCompleted"></h3>
+	</div>
+	
+	<div>
+	<form enctype="application/json" method="POST" id="trmsForm">
+		Form ID:<input type="text" name= "formId">
+		<br>
+		Employee Name: <input type="text" name="empId">
+		<br>
+		Supervisor Name: <input type="text" name="supervisorName">
+		<br>
+        event name: <input type="text" name= "eventName">
+		<br>
+		event type: <input type="text" name="eventType">
+		<br>
+		event cost: <input type="text" name="eventCost">
+		<br>
+      
+        supervisor approval:<input type="text" name= "approvedByDS">
+		<br>
+		department head approval: <input type="text" name="approvedByDH">
+		<br>
+		benefits coordinator approval: <input type="text" name="approvedByBC">
+		<br>
+		date completed: <input type="text" name="dateCompleted">
+		<br>
+		<input type="submit" name="submitme" id="trmsFormSubmit">
+	
+	</form>
+	
+	</div>
+
+	<script type="text/javascript" src="DummyFormGetter.js"></script>
+
+</body>
+</html>

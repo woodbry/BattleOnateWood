@@ -35,10 +35,12 @@ public class ApproveServlet extends HttpServlet {
 		int id = mapper.readValue(request.getParameter("fid"), Integer.class);
 		PrintWriter out =response.getWriter();
 		String fJSON;
+		
 		try {
 			fJSON=mapper.writeValueAsString(fdi.getFormByFId(id));
 			response.setContentType("application/json");
 			response.setCharacterEncoding("UTF-8");
+			System.out.println("did ya get that thing i sent ya? :" +id);
 			out.print(fJSON);
 			System.out.println(fJSON);
 		} catch (SQLException e) {

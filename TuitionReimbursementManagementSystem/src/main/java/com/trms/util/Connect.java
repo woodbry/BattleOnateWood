@@ -29,18 +29,15 @@ public class Connect {
 		java.sql.Connection conn = null;
 		Properties prop = new Properties();
 		try {
-			prop.load(new FileReader("database.properties"));
-			conn= DriverManager.getConnection(prop.getProperty("url"),
-					prop.getProperty("user"), prop.getProperty("password"));
-//			conn= DriverManager.getConnection(url,username,password);
+		String	url="jdbc:postgresql://battlem2072.c8h37embw41w.us-east-2.rds.amazonaws.com/postgres";
+			String	user="mariobattle";
+			String	password="1qaz2wsx3edc";
+//			prop.load(new FileReader("database.properties"));
+//			conn= DriverManager.getConnection(prop.getProperty("url"),
+//					prop.getProperty("user"), prop.getProperty("password"));
+			conn= DriverManager.getConnection(url,user,password);
 		} catch (SQLException e) {
 			System.out.println("Failed to create connection");
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
