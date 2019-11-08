@@ -56,11 +56,10 @@ primary key(employee_id, form_id)
 --grade recieved can be a null value
 create table form(
 form_id integer primary key,
-submittor_name varchar(100),
+submittor_eid integer,
 supervisor_name varchar(50),
 event_name varchar(100),
 event_type varchar(50),
-grade_recieved varchar(10),
 supervisor_approval boolean default false,
 event_cost numeric,
 date_completed varchar(20),
@@ -142,6 +141,7 @@ CREATE or replace function employee_login(text ,text) RETURNS login_result
 SELECT employee_id , employee_first_name, employee_last_name
 from employee
 where employee.employee_user_name= (
+
 		select employee_user_name 
 		from login 
 		where login.employee_user_name= $1 
@@ -149,6 +149,7 @@ where employee.employee_user_name= (
 		login.employee_password=$2
 ); $$
     LANGUAGE SQL;
+
 
 
 
@@ -187,4 +188,12 @@ before insert on employee
 for each row
 execute function employee_insert();
 
-
+--inputting sim forms
+INSERT INTO form values(DEFAULT, 'vance chance','bob barker','someEvent', 'standardGrade', '100', DEFAULT, 500, '06112019',null);
+insert into login values('bbarker', '1');
+insert into employee values(default, 'Bob', 'Barker','bbarker', default, 'tampa');
+insert into event_table values('University Course', 1);
+insert into event_table values('Certification Prep', 2);
+insert into event_table values('Certification', 3);
+insert into event_table values('Technical Training', 4);
+insert into event_table values('Other', 5);

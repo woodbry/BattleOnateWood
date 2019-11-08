@@ -2,13 +2,16 @@
 *.class
 
 #Properties
-database.properties
+*.properties
 
 # Log file
 *.log
 
 # BlueJ files
 *.ctxt
+
+#db prop file
+*.properties
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
@@ -21,6 +24,6 @@ database.properties
 *.zip
 *.tar.gz
 *.rar
-
+*.mf
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
