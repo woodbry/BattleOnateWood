@@ -44,7 +44,7 @@ public class EmployeesDaoImpl implements EmployeeDao {
 		ResultSet rs;
 		try {
 			Connection c = conn.getConnection();
-			String sql = "select * from trmsproject1.employee_login(?,?)";
+			String sql = "select * from employee_login(?,?)";
 			PreparedStatement ps = c.prepareStatement(sql);
 			ps.setString(1, name);
 			ps.setString(2, secret);

@@ -15,7 +15,7 @@ public class Portal extends HttpServlet {
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println(" in doGet of HomeServlet");
-		request.getRequestDispatcher("index.html").forward(request, response);
+		request.getRequestDispatcher("login.html").forward(request, response);
 	}
 
 }

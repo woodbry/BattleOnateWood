@@ -49,6 +49,9 @@ foreign key (event_type)
 references event_table(event_type) 
 on update cascade on delete cascade;
 
+alter table forms
+drop constraint fk_event_type;
+
 alter table event_table 
 add constraint fk_event_grading_format 
 foreign key (event_grading_format_id) 
@@ -107,13 +110,27 @@ before insert on forms
 for each row
 execute function form_insert();
 
+--return set for login
+create TYPE login_result AS (id int, user_first_name text, user_last_name text);
+
+--return user id and username upon successful login
+CREATE or replace function employee_login(text ,text) RETURNS login_result
+    AS $$ 
+SELECT employee_id , employee_first_name, employee_last_name
+from employees
+where employees.employee_user_name= $1 
+		and 
+		employee_password=$2
+; $$
+    LANGUAGE SQL;
+
 
 
 --inputting sim forms
-INSERT INTO forms values(DEFAULT,10100897,'Dorothy Diaz','someEvent', 'standardGrade',500, DEFAULT, default, default, '2019-11-06',null);
-INSERT INTO forms values(DEFAULT,10100812,'Dorothy Diaz','someEvent', 'standardGrade',800, DEFAULT, default, default, '2019-11-07',null);
-INSERT INTO forms values(DEFAULT,10100795,'Grant Gordon','someEvent', 'standardGrade',80, DEFAULT, default, default, '2019-12-07',null);
-INSERT INTO forms values(DEFAULT,10100778,'Grant Gordon','someEvent', 'standardGrade',350, DEFAULT, default, default, '2019-12-08',null);
+INSERT INTO forms values(DEFAULT,(select employee_id from employees where employees.employee_user_name='bbarker'),'Dorothy Diaz','someEvent', 'standardGrade',500, DEFAULT, default, default, '2019-11-06',null);
+INSERT INTO forms values(DEFAULT,(select employee_id from employees where employees.employee_user_name='ccav'),'Dorothy Diaz','someEvent', 'standardGrade',800, DEFAULT, default, default, '2019-11-07',null);
+INSERT INTO forms values(DEFAULT,(select employee_id from employees where employees.employee_user_name='iindra'),'Grant Gordon','someEvent', 'standardGrade',80, DEFAULT, default, default, '2019-12-07',null);
+INSERT INTO forms values(DEFAULT,(select employee_id from employees where employees.employee_user_name='jjohnson'),'Grant Gordon','someEvent', 'standardGrade',350, DEFAULT, default, default, '2019-12-08',null);
 insert into employees values(default, 'Bob', 'Barker','bbarker','1', 'tampa', default, default, default, default);
 insert into employees values(default, 'Charlie', 'Cass','ccav','1', 'tampa', default, default, default, default);
 insert into employees values(default, 'Dorothy', 'Diaz','ddiaz','2', 'tampa', default, default, true, default);

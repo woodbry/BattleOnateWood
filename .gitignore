@@ -10,8 +10,6 @@
 # BlueJ files
 *.ctxt
 
-#db prop file
-*.properties
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/

@@ -18,11 +18,13 @@ public class LogoutServlet extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
-		request.getRequestDispatcher("dudex.html").include(request, response);
 		HttpSession session=request.getSession();
 		session.invalidate();
-		
 		out.print("You are succesfully logged out");
+		request.getRequestDispatcher("index.html").forward(request, response);
+		
+		
+		
 		out.close();
 		
 	}
