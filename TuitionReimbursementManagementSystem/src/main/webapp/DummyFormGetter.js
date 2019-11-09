@@ -62,4 +62,5 @@ window.onload= function() {
 	console.log("in onload");
 	document.getElementById("fidSubmitGet").addEventListener("click",getForm,false);
 	document.getElementById("trmsFormSubmit").addEventListener("click", postForm,false);
+	document.getElementById("allFormsSubmitGet").addEventListener("click", getAllForms,false);
 }
