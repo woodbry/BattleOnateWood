@@ -38,13 +38,13 @@ public class EmployeesDaoImpl implements EmployeeDao {
 	public Employee login(String name, String secret) {
 		Employee emp = null;
 		
-		String sql = "SELECT employee_id , employee_first_name, employee_last_name " + 
-				"from trmsproject1.employee where trmsproject1.employee.employee_user_name= ("
-				+ "select employee_user_name from trmsproject1.login where trmsproject1.login.employee_user_name=? and trmsproject1.login.employee_password=?)";
+//		String sql = "SELECT employee_id , employee_first_name, employee_last_name " + 
+//				"from trmsproject1.employee where trmsproject1.employee.employee_user_name= ("
+//				+ "select employee_user_name from trmsproject1.login where trmsproject1.login.employee_user_name=? and trmsproject1.login.employee_password=?)";
 		ResultSet rs;
 		try {
 			Connection c = conn.getConnection();
-//			String sql = "select * from employee_login(?,?)";
+			String sql = "select * from trmsproject1.employee_login(?,?)";
 			PreparedStatement ps = c.prepareStatement(sql);
 			ps.setString(1, name);
 			ps.setString(2, secret);
@@ -56,7 +56,7 @@ public class EmployeesDaoImpl implements EmployeeDao {
 			emp.setLastName(rs.getString(3));
 			}
 		} catch (SQLException e) {
-			System.out.println("I am still broken! :( ");
+			System.out.println("login still broken! :( ");
 			e.printStackTrace();
 		}
 		

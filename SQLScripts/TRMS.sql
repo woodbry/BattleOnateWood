@@ -139,21 +139,26 @@ create TYPE login_result AS (id int, user_first_name text, user_last_name text);
 CREATE or replace function employee_login(text ,text) RETURNS login_result
     AS $$ 
 SELECT employee_id , employee_first_name, employee_last_name
-from employee
-where employee.employee_user_name= (
+from trmsproject1.employee
+where trmsproject1.employee.employee_user_name= (
 
 		select employee_user_name 
-		from login 
-		where login.employee_user_name= $1 
+		from trmsproject1.login 
+		where trmsproject1.login.employee_user_name= $1 
 		and 
-		login.employee_password=$2
+		trmsproject1.login.employee_password=$2
 ); $$
     LANGUAGE SQL;
+/*
+insert into login (employee_user_name, employee_password) values ('test', '1');
+insert into employee (employee_first_name, employee_last_name, employee_user_name) values ('step1','2step','test');
 
-
-
-
-
+SELECT employee_id , employee_first_name, employee_last_name 
+from employee where employee.employee_user_name=(select employee_user_name 
+from login 
+where login.employee_user_name='test' and login.employee_password='1');
+*/
+   
 --add generated user id upon insert
 create or replace function form_insert()
 returns trigger as $$

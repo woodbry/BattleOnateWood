@@ -49,14 +49,6 @@ public class Employee {
 	
 
 
-
-	public Employee(String firstName, String lastName, int empId) {
-			super();
-			this.firstName = firstName;
-			this.lastName = lastName;
-			this.empId = empId;
-		}
-
 	public int getEmpId() {
 		return empId;
 	}

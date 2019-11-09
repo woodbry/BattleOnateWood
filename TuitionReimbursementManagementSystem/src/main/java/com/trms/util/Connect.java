@@ -30,26 +30,12 @@ public class Connect {
 		
 		try {
 
-			Class.forName("org.postgresql.Driver");
-			conn= DriverManager.getConnection("jdbc:postgresql://mypegabatch.cfgmuw0zkwrh.us-east-2.rds.amazonaws.com/postgres",
-					"MadScientist626", "3eDru-=0FaP8L-tiTh8p");
-
-			String url="jdbc:postgresql://grantdb22.cvy92ehtyzzn.us-east-2.rds.amazonaws.com/postgres";
-			String user="grantDB22";
-			String password="Grant092291.";
-//			prop.load(new FileReader("database.properties"));
-//			conn= DriverManager.getConnection(prop.getProperty("url"),
-//					prop.getProperty("user"), prop.getProperty("password"));
-			conn= DriverManager.getConnection(url,user,password);
 
 		} catch (SQLException e) {
 			System.out.println("Failed to create connection");
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 
 		}
 		return conn;
