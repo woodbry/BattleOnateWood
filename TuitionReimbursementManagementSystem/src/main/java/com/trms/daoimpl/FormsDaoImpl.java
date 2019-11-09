@@ -25,7 +25,7 @@ public class FormsDaoImpl implements FormsDao {
 		Forms p = null;
 		while(rs.next()) {
 			p =new Forms(rs.getInt(1), rs.getInt(2),rs.getString(3), rs.getString(4),rs.getString(5), 
-					 rs.getDouble(6), rs.getBoolean(7), rs.getBoolean(8),rs.getBoolean(9),rs.getDate(10));
+					 rs.getDouble(6), rs.getBoolean(7), rs.getBoolean(8),rs.getBoolean(9),rs.getString(10));
 			empList.add(p);
 		}return empList;
 		} catch(SQLException e) {
