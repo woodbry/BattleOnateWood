@@ -29,17 +29,22 @@ public class Connect {
 		java.sql.Connection conn = null;
 		
 		try {
-			Class.forName("org.postgresql.Driver");
+
+			try {
+				Class.forName("org.postgresql.Driver");
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			conn= DriverManager.getConnection("jdbc:postgresql://mypegabatch.cfgmuw0zkwrh.us-east-2.rds.amazonaws.com/postgres",
 					"MadScientist626", "3eDru-=0FaP8L-tiTh8p");
+
 
 		} catch (SQLException e) {
 			System.out.println("Failed to create connection");
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+
 		}
 		return conn;
 	}
