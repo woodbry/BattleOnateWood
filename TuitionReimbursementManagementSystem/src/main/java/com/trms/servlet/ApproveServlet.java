@@ -32,7 +32,7 @@ public class ApproveServlet extends HttpServlet {
 		System.out.println("in doGet");
 		ObjectMapper mapper= new ObjectMapper();
 		FormsDaoImpl fdi = new FormsDaoImpl();
-		int id = mapper.readValue(request.getParameter("fid"), Integer.class);
+		int id = mapper.readValue(request.getParameter("formId"), Integer.class);
 		PrintWriter out =response.getWriter();
 		String fJSON;
 		
