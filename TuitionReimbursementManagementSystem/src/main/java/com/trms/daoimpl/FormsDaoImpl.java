@@ -21,7 +21,7 @@ public class FormsDaoImpl implements FormsDao {
 		java.sql.Statement stmt;
 		try {
 		stmt= c.createStatement();
-		ResultSet rs = stmt.executeQuery("select * from form");
+		ResultSet rs = stmt.executeQuery("select * from forms");
 		Forms p = null;
 		while(rs.next()) {
 			p =new Forms(rs.getInt(1), rs.getInt(2),rs.getString(3), rs.getString(4),rs.getString(5), 
@@ -52,11 +52,42 @@ public class FormsDaoImpl implements FormsDao {
 
 //	@Override
 	public List<Forms> getFormByEId(int empId) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+			ArrayList<Forms> formsList = new ArrayList<Forms>();
+			Connection c= conn.getConnection();
+			java.sql.Statement stmt;
+			try {
+				PreparedStatement ps = c.prepareStatement("select * from forms where submittor_eid=?");
+				ps.setInt(1, empId);
+				ResultSet rs = ps.executeQuery();
+				Forms p = null;
+			while(rs.next()) {
+				p =new Forms(rs.getInt(1), rs.getInt(2),rs.getString(3), rs.getString(4),rs.getString(5), 
+						 rs.getDouble(6), rs.getBoolean(7), rs.getBoolean(8),rs.getBoolean(9),rs.getString(10));
+				formsList.add(p);
+			}return formsList;
+			} catch(SQLException e) {
+				e.printStackTrace();
+			}
+			
+			return null;
 	}
 	public List<Forms> getFormBySupervisor(String name){
-		//not sure if the string is needed or if I can just pull down session token from here
+		ArrayList<Forms> formsList = new ArrayList<Forms>();
+		Connection c= conn.getConnection();
+		java.sql.Statement stmt;
+		try {
+			PreparedStatement ps = c.prepareStatement("select * from forms where supervisor_name=?");
+			ps.setString(1, name);
+			ResultSet rs = ps.executeQuery();
+			Forms p = null;
+		while(rs.next()) {
+			p =new Forms(rs.getInt(1), rs.getInt(2),rs.getString(3), rs.getString(4),rs.getString(5), 
+					 rs.getDouble(6), rs.getBoolean(7), rs.getBoolean(8),rs.getBoolean(9),rs.getString(10));
+			formsList.add(p);
+		}return formsList;
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
 		
 		return null;
 	}
@@ -72,17 +103,16 @@ public class FormsDaoImpl implements FormsDao {
 		ps.setString(4, f.getEventType());
 		ps.setDouble(5, f.getEventCost());
 		ps.setString(6, f.getDateCompleted());
+		System.out.println("Form added");
 	}
 
-//	@Override
 	public void updateForm(Forms f) throws SQLException {
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-generated method stub	
 	}
 
 //	@Override
 	public void removeForm(Forms f) throws SQLException {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub 
 		
 	}
 
