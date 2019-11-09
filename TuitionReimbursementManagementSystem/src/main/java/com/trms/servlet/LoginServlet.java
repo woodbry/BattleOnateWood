@@ -38,14 +38,14 @@ public class LoginServlet extends HttpServlet {
 			session.setAttribute("employee_id", emp.getEmpId());
 			session.setAttribute("name", emp.getFirstName()+" "+emp.getLastName());
 			pw.write("Welcome " +session.getAttribute("name"));
-			request.getRequestDispatcher("DummyFormGetter.html").forward(request, response);
+			
 		}else {
 			pw.print("Sorry, invalid username/password combination!");
 			request.getRequestDispatcher("index.html").forward(request, response);
 		}
 		
 		pw.close();
-		
+		request.getRequestDispatcher("DummyFormGetter.html").forward(request, response);
 	}
 
 }
