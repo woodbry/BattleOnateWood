@@ -140,14 +140,15 @@ public class FormsDaoImpl implements FormsDao {
 	public void addForm(Forms f) throws SQLException {
 		// TODO Auto-generated method stub
 		Connection c = conn.getConnection();
-		String sql = "insert into forms values(default,?,?,?,?,?,default,default,default,?";
+		String sql = "insert into forms values(default,?,?,?,?,?,default,default,default,?)";
 		PreparedStatement ps = c.prepareStatement(sql);
 		ps.setInt(1,f.getEmpId());
 		ps.setString(2, f.getSupervisorName());
 		ps.setString(3, f.getEventName());
 		ps.setString(4, f.getEventType());
-		ps.setDouble(5, f.getEventCost());
+		ps.setInt(5, (int) f.getEventCost());
 		ps.setString(6, f.getDateCompleted());
+		ps.executeUpdate();
 		System.out.println("Form added");
 	}
 // APPROVAL UPDATE FOR SUPERVISOR

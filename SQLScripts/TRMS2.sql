@@ -110,11 +110,22 @@ execute function form_insert();
 
 
 --inputting sim forms
-INSERT INTO forms values(DEFAULT, 10101101,'Dorothy Diaz','someEvent', 'standardGrade',500, DEFAULT, default, default, '2019-11-06',null);
+INSERT INTO forms values(DEFAULT,10100897,'Dorothy Diaz','someEvent', 'standardGrade',500, DEFAULT, default, default, '2019-11-06',null);
+INSERT INTO forms values(DEFAULT,10100812,'Dorothy Diaz','someEvent', 'standardGrade',800, DEFAULT, default, default, '2019-11-07',null);
+INSERT INTO forms values(DEFAULT,10100795,'Grant Gordon','someEvent', 'standardGrade',80, DEFAULT, default, default, '2019-12-07',null);
+INSERT INTO forms values(DEFAULT,10100778,'Grant Gordon','someEvent', 'standardGrade',350, DEFAULT, default, default, '2019-12-08',null);
 insert into employees values(default, 'Bob', 'Barker','bbarker','1', 'tampa', default, default, default, default);
 insert into employees values(default, 'Charlie', 'Cass','ccav','1', 'tampa', default, default, default, default);
-insert into employees values(default, 'Dorothy', 'Diaz','ddiaz','1', 'tampa', default, true, default, default);
-
+insert into employees values(default, 'Dorothy', 'Diaz','ddiaz','2', 'tampa', default, default, true, default);
+insert into employees values(default, 'Eugene','Eres', 'eeres','3','new york', default,true, default, default);
+insert into employees values(default, 'Frank', 'Fieri', 'ffieri', '4', 'tampa', default, default, default, true);
+insert into employees values(default, 'Grant', 'Gordon','ggordon', '3', 'new york', default, true, true, default);
+insert into employees values(default, 'Harold', 'Holmes','hholmes','1', 'tampa', default, default, default, default);
+insert into employees values(default, 'Isaiah', 'Indra','iindra','1', 'new york', default, default, default, default);
+insert into employees values(default, 'Juan', 'Johnson','jjohnson','1', 'new york', default, default, default, default);
+insert into employees values(default, 'Kevin', 'King','kking','1', 'tampa', default, default, default, default);
+truncate table forms;
+truncate table employees;
 insert into event_table values('University Course', 1);
 insert into event_table values('Certification Prep', 2);
 insert into event_table values('Certification', 3);
