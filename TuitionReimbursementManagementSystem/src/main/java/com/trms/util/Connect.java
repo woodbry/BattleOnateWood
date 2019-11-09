@@ -74,12 +74,14 @@ public class Connect {
 
 			}
 
-			conn= DriverManager.getConnection("jdbc:postgresql://mypegabatch.cfgmuw0zkwrh.us-east-2.rds.amazonaws.com/postgres",
+			conn= DriverManager.getConnection("jdbc:postgresql://grantdb22.cvy92ehtyzzn.us-east-2.rds.amazonaws.com/postgres",
 
-					"MadScientist626", "3eDru-=0FaP8L-tiTh8p");
+					"grantDB22", "Grant092291.");
 
-
-
+//
+//			String url = "jdbc:postgresql://grantdb22.cvy92ehtyzzn.us-east-2.rds.amazonaws.com/postgres";
+//			String username = "grantDB22";
+//			String password = "Grant092291.";
 
 
 		} catch (SQLException e) {

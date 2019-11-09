@@ -55,5 +55,5 @@ function jsonBuilder() {
 
 window.onload= function() {
 	console.log("in onload");
-	document.getElementById("vgSubmitGet").addEventListener("click",logIn,false);
+	document.getElementById("login_button").addEventListener("click",logIn,false);
 }
