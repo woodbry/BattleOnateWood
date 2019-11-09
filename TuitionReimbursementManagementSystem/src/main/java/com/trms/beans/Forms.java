@@ -16,6 +16,17 @@ public class Forms {
 	private String dateCompleted;
 	
 	
+	
+public Forms(int empId, String supervisorName, String eventName, String eventType, double eventCost,
+			String dateCompleted) {
+		super();
+		this.empId = empId;
+		this.supervisorName = supervisorName;
+		this.eventName = eventName;
+		this.eventType = eventType;
+		this.eventCost = eventCost;
+		this.dateCompleted = dateCompleted;
+	}
 public Forms(int formId, int empId, String supervisorName, String eventName, String eventType, double eventCost,
 			boolean approvedByDS, boolean approvedByDH, boolean approvedByBC, String dateCompleted) {
 		super();

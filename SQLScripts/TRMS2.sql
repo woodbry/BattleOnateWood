@@ -4,17 +4,17 @@ employee_id integer primary key,
 employee_first_name varchar(20),
 employee_last_name varchar(25),
 employee_user_name varchar(50),
-employee_password varchar(50)
+employee_password varchar(50),
 locale varchar(100),
 available_funds integer default 1000,
 is_dep_head boolean default false,
 is_dir_super boolean default false,
-is_ben_coord boolean default false,
+is_ben_coord boolean default false
 );
 
 --event type table
 create table event_table(
-event_type varchar(50)primary key,
+event_type varchar(50) primary key,
 event_grading_format_id integer
 );
 
@@ -55,6 +55,11 @@ foreign key (event_grading_format_id)
 references grade_format(grade_format_id)
  on update cascade on delete cascade;
  
+ alter table forms 
+ add constraint fk_emp_id
+ foreign key(submittor_eid)
+ references employees(employee_id);
+ 
  --sequence for account id's *is running already
 create sequence employee_seq
     increment by -17
@@ -92,7 +97,7 @@ $$ language plpgsql;
 
 --trigger for inserting into the user table
 create trigger employee_insert
-before insert on employee
+before insert on employees
 for each row
 execute function employee_insert();
 
@@ -105,11 +110,10 @@ execute function form_insert();
 
 
 --inputting sim forms
-INSERT INTO form values(DEFAULT,  ,'bob barker','someEvent', 'standardGrade', '100', DEFAULT, 500, '06112019',null);
-insert into login values('bbarker', '1');
-insert into employee values(default, 'Bob', 'Barker','bbarker','1', 'tampa', default, default, default, default);
-insert into employee values(default, 'Charlie', 'Cass','ccav','1', 'tampa', default, default, default, default);
-insert into employee values(default, 'Dorothy', 'Diaz','ddiaz','1', 'tampa', default, true, default, default);
+INSERT INTO forms values(DEFAULT, 10101101,'Dorothy Diaz','someEvent', 'standardGrade',500, DEFAULT, default, default, '2019-11-06',null);
+insert into employees values(default, 'Bob', 'Barker','bbarker','1', 'tampa', default, default, default, default);
+insert into employees values(default, 'Charlie', 'Cass','ccav','1', 'tampa', default, default, default, default);
+insert into employees values(default, 'Dorothy', 'Diaz','ddiaz','1', 'tampa', default, true, default, default);
 
 insert into event_table values('University Course', 1);
 insert into event_table values('Certification Prep', 2);
