@@ -18,7 +18,7 @@ public class LogoutServlet extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
-		request.getRequestDispatcher("index.html").include(request, response);
+		request.getRequestDispatcher("dudex.html").include(request, response);
 		HttpSession session=request.getSession();
 		session.invalidate();
 		
