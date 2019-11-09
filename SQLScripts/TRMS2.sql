@@ -124,7 +124,7 @@ where employees.employee_user_name= $1
 ; $$
     LANGUAGE SQL;
 
-
+select * from forms where form_id= 13325;
 
 --inputting sim forms
 INSERT INTO forms values(DEFAULT,(select employee_id from employees where employees.employee_user_name='bbarker'),'Dorothy Diaz','someEvent', 'standardGrade',500, DEFAULT, default, default, '2019-11-06',null);
