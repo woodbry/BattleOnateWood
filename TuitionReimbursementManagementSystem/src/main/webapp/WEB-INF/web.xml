@@ -51,5 +51,14 @@
   <servlet-mapping>
     <servlet-name>Portal</servlet-name>
     <url-pattern>/index</url-pattern>
+	</servlet-mapping>
+<servlet>
+    <display-name>DirectSupervisorServ</display-name>
+    <servlet-name>DirectSupervisorServ</servlet-name>
+    <servlet-class>com.trms.servlet.DirectSupervisorServ</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DirectSupervisorServ</servlet-name>
+    <url-pattern>/dss</url-pattern>
   </servlet-mapping>
 </web-app>

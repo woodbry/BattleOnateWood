@@ -48,23 +48,27 @@ public class ApproveServlet extends HttpServlet {
 			e.printStackTrace();
 		}out.flush();
 	}
+	
+
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	//APPROVAL POST
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("in doPost");
 		Forms f=null;
 		ObjectMapper mapper= new ObjectMapper();
+		FormsDaoImpl fdi= new FormsDaoImpl();
+		int id = mapper.readValue(request.getParameter("aid"), Integer.class);
 		//convert JSON to a Java Object
 		//YOU NEED A DEFAULT CONSTRUCTOR IN UR JAVA OBJECT CLASS IN ORDER TO USE THIS!!
-		f=mapper.readValue(request.getInputStream(), Forms.class);
-		System.out.println(f);
-		FormsDaoImpl fdi= new FormsDaoImpl();
 		try {
-			fdi.addForm(f);
+			f= fdi.getFormByFId(id);
+			System.out.println(f);
+			fdi.updateFormSA(f);
 			PrintWriter pw=response.getWriter();
-			pw.write("<h3>Added Form Game</h3>");
+			pw.write("<h3>Added Form</h3>");
 			pw.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
