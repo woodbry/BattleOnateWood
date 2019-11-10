@@ -8,21 +8,21 @@ employee_id integer primary key,
 employee_first_name varchar(20),
 employee_last_name varchar(25),
 employee_user_name varchar(100),
-available_funds integer default 1000
+available_funds integer default 1000,
 locale varchar(100)
 );
 
 --here is where roles go
 create table employee_type (
 employee_id integer,
-employee_type_id integer,
-primary key (employee_id,employee_type_id)
+employee_role varchar(10),
+primary key (employee_id,employee_role)
 );
 
 --what those roles are
 create table employee_role(
-employee_type_id integer primary key,
-description varchar
+employee_role varchar(10) primary key,
+description varchar(50)
 );
 
 
@@ -35,8 +35,7 @@ employee_password varchar(25)
 
 --event type table
 create table event_table(
-event_type_id integer primary key,
-event_type varchar,
+event_type varchar(50)primary key,
 event_grading_format_id integer
 );
 
@@ -57,11 +56,10 @@ primary key(employee_id, form_id)
 --grade recieved can be a null value
 create table form(
 form_id integer primary key,
-submittor_name varchar(100),
+submittor_eid integer,
 supervisor_name varchar(50),
 event_name varchar(100),
-event_type varchar(25),
-grade_recieved varchar(10),
+event_type varchar(50),
 supervisor_approval boolean default false,
 event_cost numeric,
 date_completed varchar(20),
@@ -71,25 +69,34 @@ attached_file bytea
 /*
  *Constraints 
  */
+alter table employee_type
+add constraint fk_employee_role
+foreign key (employee_role)
+references employee_role(employee_role)
+on update cascade on delete cascade;
 
-alter table employee_form
+alter table employee_type
+add constraint fk_employee_id
+foreign key (employee_id)
+references employee(employee_id)
+on update cascade on delete cascade;
+
+alter table employee_forms
 add constraint fk_form_id
 foreign key (form_id)
 references form(form_id)
 on update cascade on delete cascade;
 
-
-alter table employee_form 
+alter table employee_forms 
 add constraint fk_employee_id
 foreign key (employee_id)
 references employee(employee_id)
 on delete cascade on update cascade;
 
-
 alter table form 
 add constraint fk_event_type 
 foreign key (event_type) 
-references event_table(event_type_id) 
+references event_table(event_type) 
 on update cascade on delete cascade;
 
 alter table employee 
@@ -111,40 +118,47 @@ references grade_format(grade_format_id)
 
 --sequence for account id's *is running already
 create sequence employee_seq
-	increment by -17
-	start with 10101101
+	increment by 17
+	start with 9000
 	minvalue 9000
 	maxvalue 91010011;
 
 --sequence for user id's *is running already
 CREATE SEQUENCE form_seq
-	increment by -3
+	increment by -13
 	START with 13337
 	MINVALUE 975
 	MAXVALUE 101010;
 
+
 --return set for login
-CREATE TYPE login_result AS (id int,user_name text);
+create TYPE login_result AS (id int, user_first_name text, user_last_name text);
+
 
 --return user id and username upon successful login
-CREATE function employee_login(text ,text) RETURNS login_result
+CREATE or replace function employee_login(text ,text) RETURNS login_result
     AS $$ 
-SELECT employee_id , employee_user_name
-from employee
-where employee.employee_user_name= (
+SELECT employee_id , employee_first_name, employee_last_name
+from trmsproject1.employee
+where trmsproject1.employee.employee_user_name= (
 
 		select employee_user_name 
-		from login 
-		where login.employee_user_name= $1 
+		from trmsproject1.login 
+		where trmsproject1.login.employee_user_name= $1 
 		and 
-		login.employee_password=$2
+		trmsproject1.login.employee_password=$2
 ); $$
     LANGUAGE SQL;
+/*
+insert into login (employee_user_name, employee_password) values ('test', '1');
+insert into employee (employee_first_name, employee_last_name, employee_user_name) values ('step1','2step','test');
 
-
-
-
-
+SELECT employee_id , employee_first_name, employee_last_name 
+from employee where employee.employee_user_name=(select employee_user_name 
+from login 
+where login.employee_user_name='test' and login.employee_password='1');
+*/
+   
 --add generated user id upon insert
 create or replace function form_insert()
 returns trigger as $$
@@ -179,4 +193,12 @@ before insert on employee
 for each row
 execute function employee_insert();
 
-
+--inputting sim forms
+INSERT INTO form values(DEFAULT, 'vance chance','bob barker','someEvent', 'standardGrade', '100', DEFAULT, 500, '06112019',null);
+insert into login values('bbarker', '1');
+insert into employee values(default, 'Bob', 'Barker','bbarker', default, 'tampa');
+insert into event_table values('University Course', 1);
+insert into event_table values('Certification Prep', 2);
+insert into event_table values('Certification', 3);
+insert into event_table values('Technical Training', 4);
+insert into event_table values('Other', 5);
