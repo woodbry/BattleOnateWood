@@ -30,32 +30,67 @@ function getForm(){
 }
 function postForm(){
 	console.log("in postForm");
-	
+			
 	//let vg=document.getElementById("vgForm").submit;
-	 var xhr= new XMLHttpRequest();
+	var xhr= new XMLHttpRequest();
 	xhr.onreadystatechange= function() {
 		console.log("in ORSC "+ xhr.readyState );
-	if(xhr.readyState==4 && xhr.status==200){
-	console.log(xhr.responseText);
+		if(xhr.readyState==4 && xhr.status==200){
+			console.log(xhr.responseText);
+		}
 	}
-}
-//change link when you add to project
-xhr.open("POST","http://localhost:9090/TuitionReimbursementManagementSystem/DummyFormGetter",true);
+	//change link when you add to project
+	xhr.open("POST","http://localhost:9090/TuitionReimbursementManagementSystem/submit",true);		
 	var payload=jsonBuilder();
 	xhr.send(payload);
-
 }
-function jsonBuilder() {
-    var elements = document.getElementById("trmsForm").elements;
-    var obj ={};
-    for(var i = 0 ; i < elements.length-1; i++){
-        var item = elements.item(i);
-        obj[item.name] = item.value;
-        console.log(obj);   
+
+function approveFormDS(){
+	console.log("in approveForm DS");
+	let aid=document.getElementById("appId").value;
+	var xhr = new XMLHttpRequest();
+	xhr.onreadystatechange= function(){
+		console.log("in ORSC "+ xhr.readyState );
+		if(xhr.readyState==4 && xhr.status==200){
+			console.log(xhr.responseText);
+		}
+	}
+	//change link when you add to project
+	xhr.open("POST","http://localhost:9090/TuitionReimbursementManagementSystem/DummyFormGetter?aid="+aid,true);		
+	var payload=jsonBuilder();
+	xhr.send(payload);
+	}
+}
+function getAllForms(){
+	console.log("in get All Forms");
+	//let fid=document.getElementById("formId").value;
+	var xhr= new XMLHttpRequest();
+	xhr.onreadystatechange= function() {
+		console.log("in ORSC "+ xhr.readyState );
+		if(xhr.readyState==4 && xhr.status==200){
+			console.log(xhr.responseText);
+			var f= JSON.parse(xhr.responseText);
+			loadForm(f);
+		}
     }
-    var json= JSON.stringify(obj);
-    console.log(json);
-    return json;
+    //change link when you add to project
+	xhr.open("GET","http://localhost:9090/TuitionReimbursementManagementSystem/dss",true);
+	xhr.send();
+}
+
+
+
+		function jsonBuilder() {
+			var elements = document.getElementById("trmsForm").elements;
+			var obj ={};
+			for(var i = 0 ; i < elements.length-1; i++){
+				var item = elements.item(i);
+				obj[item.name] = item.value;
+				console.log(obj);   
+			}
+			var json= JSON.stringify(obj);
+			console.log(json);
+			return json;
 }
 
 window.onload= function() {
@@ -63,4 +98,5 @@ window.onload= function() {
 	document.getElementById("fidSubmitGet").addEventListener("click",getForm,false);
 	document.getElementById("trmsFormSubmit").addEventListener("click", postForm,false);
 	document.getElementById("allFormsSubmitGet").addEventListener("click", getAllForms,false);
+	document.getElementById("appSubmitGet").addEventListener("click",approveFormDS, false);
 }

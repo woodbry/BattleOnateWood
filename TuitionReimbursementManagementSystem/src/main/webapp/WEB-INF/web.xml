@@ -49,4 +49,14 @@
     <servlet-name>ApproveServlet</servlet-name>
     <url-pattern>/DummyFormGetter</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DirectSupervisorServ</display-name>
+    <servlet-name>DirectSupervisorServ</servlet-name>
+    <servlet-class>com.trms.servlet.DirectSupervisorServ</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DirectSupervisorServ</servlet-name>
+    <url-pattern>/dss</url-pattern>
+  </servlet-mapping>
 </web-app>
