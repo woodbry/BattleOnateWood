@@ -30,73 +30,69 @@
      
     </div>
   </nav>
-  
-  
-  
 
   <div class  = "container ">
  
     <fieldset>
-    
     <!-- Form Name -->
-    <legend class="red-text text-darken-3"><h3>Employee Dashboard</h3></legend>
-			<div>
-	<h2> Search Reimbursement Form</h2>
-	</div>
-	<div>
-	<input type="text" id= "formId" placeholder="enter Form ID"/>
-    <input type="submit" value= "Get TRMS Form" id="fidSubmitGet"/>
-    <h2 id="formId"></h2>
-	<h2 id="empId"></h2>
-	<h3 id="supervisorName"></h3>
-    <h3 id="eventName"></h3>
-	<h3 id="eventType"></h3>
-	<h3 id="eventCost"></h3>
-    <h3 id="approvedByDS"></h3>
-	<h3 id="approvedByDH"></h3>
-	<h3 id="approvedByBC"></h3>
-    <h3 id="dateCompleted"></h3>
-	</div>
-
-  
-    <!-- reimbursement link  Button  -->
-    <div class="form-group">
-      <div class="col-md-8">
-            <a href="reimbursementform2.html" id="reimbursement_app" class="btn-large waves-effect waves-light blue pulse ">Reimbursement Application</a>
-            <!-- on click to submit query -->
-      </div>
-    </div>
-
-   
+    <legend class="red-text text-darken-3"><h3>Reimbursement Application</h3></legend>
+    
+    
+    	<form enctype="application/json" method="POST" id="trmsForm">
+		<br>
+		Employee ID: <input type="text" name="empId">
+		<br>
+		Supervisor Name: <input type="text" name="supervisorName">
+		<br>
+        event name: <input type="text" name= "eventName">
+		<br>
+		event type:
+	
+		 <p>
+      <label>
+        <input name="eventType" type="radio" value="red" checked />
+        <span>Red</span>
+      </label>
+    </p>
+     <p>
+      <label>
+        <input name="eventType" type="radio" checked />
+        <span>Red</span>
+      </label>
+    </p>
+     <p>
+      <label>
+        <input name="eventType" type="radio" checked />
+        <span>Red</span>
+      </label>
+    </p>
+     
+		<br>
+		event cost: <input type="text" name="eventCost">
+		<br>
+      
+        supervisor approval:<input type="text" name= "approvedByDS">
+		<br>
+		department head approval: <input type="text" name="approvedByDH">
+		<br>
+		benefits coordinator approval: <input type="text" name="approvedByBC">
+		<br>
+		date completed: <input type="text" name="dateCompleted">
+		<br>
+		<input type="submit" name="submitme" id="trmsFormSubmit">
+	
+	</form>
+    
+    
     </fieldset>
     
 
-    </div>
 
+    <br/>
+    <br/>
+    <br/>
+    <br/>
 
-  
-
-  <div class="container">
-    <div class="section">
-
-      <!--   Icon Section   -->
-      <div class="row">
-        <div class="col s12 m4">
-         
-          </div>
-        </div>
-
-        <div class="col s12 m4">
-          
-        </div>
-
-        <div class="col s12 m4">
-          
-      </div>
-
-    </div>
-    <br><br>
-  </div>
 </div>
   <footer class="page-footer grey darken-3">
     <div class="container ">
@@ -139,9 +135,14 @@
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
+  <script type="text/javascript" src="DummyFormGetter.js"></script>
 
-<script type="text/javascript" src="DummyFormGetter.js"></script>
-  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.datepicker');
+    var instances = M.Datepicker.init(elems, options);
+  });
+  </script>
 
   </body>
 </html>
